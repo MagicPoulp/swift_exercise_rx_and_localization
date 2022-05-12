@@ -1,0 +1,21 @@
+Voici le test en question
+Please provide a sample project (on github or a zip file).
+The goal of this app is to retrieve information from the Contacts app (where you should setup 10 contacts before with first and last name and email)
+Present in a table view those 10 contacts.
+This project must include:
+       • Add  buttons: the first one to order it by first name, the second button to order by last name
+       • Those 2 buttons should be localized in 2 languages (French and English)
+       • Add a third button to switch button labels to French or English
+       • Use cocoapods to integrate an authentication library
+
+Use Rx mechanism to handle asynchronous events
+Use this authentication library to request authorization (google offer this kind of service freely. (optional)
+Configure the project to request access to BLE and Contact access
+Try to discover BLE devices around (optional)
+Clear and documented code in English
+Coded in Swift
+
+
+Cordialement,
+Chi-Minh Doan
+
