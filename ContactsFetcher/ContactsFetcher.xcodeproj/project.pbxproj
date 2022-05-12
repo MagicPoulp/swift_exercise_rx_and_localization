@@ -13,6 +13,7 @@
 		22E6A360282D4674008A651E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A35E282D4674008A651E /* Main.storyboard */; };
 		22E6A362282D4675008A651E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A361282D4675008A651E /* Assets.xcassets */; };
 		22E6A365282D4675008A651E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E6A363282D4675008A651E /* LaunchScreen.storyboard */; };
+		76C7D5FF96D1C4FA737E8FFB /* Pods_ContactsFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB4328607154E27A61838A5 /* Pods_ContactsFetcher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		22E6A361282D4675008A651E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22E6A364282D4675008A651E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22E6A366282D4675008A651E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70897CBFD20FFB48933DA684 /* Pods-ContactsFetcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactsFetcher.debug.xcconfig"; path = "Target Support Files/Pods-ContactsFetcher/Pods-ContactsFetcher.debug.xcconfig"; sourceTree = "<group>"; };
+		7FB4328607154E27A61838A5 /* Pods_ContactsFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactsFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C2F6B6C7806E62FE968FBD /* Pods-ContactsFetcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactsFetcher.release.xcconfig"; path = "Target Support Files/Pods-ContactsFetcher/Pods-ContactsFetcher.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76C7D5FF96D1C4FA737E8FFB /* Pods_ContactsFetcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				22E6A357282D4674008A651E /* ContactsFetcher */,
 				22E6A356282D4674008A651E /* Products */,
+				86B541194F900EAD14096375 /* Pods */,
+				B9650FBFF73DAA3D2022C701 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = ContactsFetcher;
 			sourceTree = "<group>";
 		};
+		86B541194F900EAD14096375 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70897CBFD20FFB48933DA684 /* Pods-ContactsFetcher.debug.xcconfig */,
+				F1C2F6B6C7806E62FE968FBD /* Pods-ContactsFetcher.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B9650FBFF73DAA3D2022C701 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FB4328607154E27A61838A5 /* Pods_ContactsFetcher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22E6A369282D4675008A651E /* Build configuration list for PBXNativeTarget "ContactsFetcher" */;
 			buildPhases = (
+				DE3DACEC6948A60392789C5F /* [CP] Check Pods Manifest.lock */,
 				22E6A351282D4674008A651E /* Sources */,
 				22E6A352282D4674008A651E /* Frameworks */,
 				22E6A353282D4674008A651E /* Resources */,
+				C50590E9F69A735DC1A17729 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C50590E9F69A735DC1A17729 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContactsFetcher/Pods-ContactsFetcher-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContactsFetcher/Pods-ContactsFetcher-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContactsFetcher/Pods-ContactsFetcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE3DACEC6948A60392789C5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ContactsFetcher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22E6A351282D4674008A651E /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		22E6A36A282D4675008A651E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70897CBFD20FFB48933DA684 /* Pods-ContactsFetcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +381,7 @@
 		};
 		22E6A36B282D4675008A651E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1C2F6B6C7806E62FE968FBD /* Pods-ContactsFetcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
