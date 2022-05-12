@@ -22,6 +22,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-1f-N5f" customClass="GIDSignInButton">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="318"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <action selector="SignInTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="EKm-mV-F63"/>
+                                            <action selector="signInTap:" destination="BYZ-38-t0r" eventType="touchDown" id="bQy-Ff-HdL"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                             </stackView>

@@ -8,9 +8,9 @@
 import UIKit
 import GoogleSignIn
 
-//let signInConfig = GIDConfiguration.init(clientID: "309480249220-eer5pd7v43ik160ldhml2f2rn2b8i9oc.apps.googleusercontent.com")
-
 class LoginViewController: UIViewController {
+
+    let signInConfig = GIDConfiguration.init(clientID: "309480249220-eer5pd7v43ik160ldhml2f2rn2b8i9oc.apps.googleusercontent.com")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +21,11 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var signInButton: GIDSignInButton!
     
+    @IBAction func signInTap(_ sender: Any) {
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+          guard error == nil else { return }
+          print("Done")
+          // If sign in succeeded, display the app's main content View.
+        }
+    }
 }
-
