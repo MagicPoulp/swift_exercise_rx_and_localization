@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import Combine
+
+// https://swiftwithmajid.com/2020/02/05/building-viewmodels-with-combine-framework/
 
 struct HomeViewModel {
-    var activeCountry = ""
+    let activeCountry = CurrentValueSubject<String, Never>("")
     
     init() {
         let locale = Locale.current
-        activeCountry = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
-        if (activeCountry != "FR" && activeCountry != "GB") {
-            activeCountry = "GB"
+        var localActiveCountry = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
+        if (localActiveCountry != "FR" && localActiveCountry != "GB") {
+            localActiveCountry = "GB"
         }
+        activeCountry.value = localActiveCountry
     }
 }

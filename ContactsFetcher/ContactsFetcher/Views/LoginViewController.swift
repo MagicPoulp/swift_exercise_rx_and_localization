@@ -17,6 +17,17 @@ class LoginViewController: UIViewController {
         
         signInButton.style = GIDSignInButtonStyle.standard
         signInButton.colorScheme = GIDSignInButtonColorScheme.light
+        
+        // The code below removes a console warning "Unbalanced calls to begin/end appearance transitions"
+        // In SceneDelegate, we skip the login, if the login is saved, but it can cause this warning
+    // https://techstalking.com/solved-unbalanced-calls-to-begin-end-appearance-transitions-for-detailviewcontroller-when-pushing-more-than-one-detail-view-controller/
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if error != nil || user == nil {
+              // Show the app's signed-out state.
+            } else {
+                self.beginAppearanceTransition(false, animated: false)
+            }
+        }
     }
 
     @IBOutlet var signInButton: GIDSignInButton!
@@ -29,7 +40,6 @@ class LoginViewController: UIViewController {
              A delay is added as a workaround because the sign in view controller is not totally finished with this error.
              "ContactsFetcher[9680:218229] [Presentation] Attempt to present <ContactsFetcher.HomeViewController: 0x141d1cd20> on <SFAuthenticationViewController: 0x14280fa00> (from <SFAuthenticationViewController: 0x14280fa00>) whose view is not in the window hierarchy."
             */
-            //self2.performSegue(withIdentifier: "showHome", sender: nil)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                 self.performSegue(withIdentifier: "showHome", sender: self )
             })

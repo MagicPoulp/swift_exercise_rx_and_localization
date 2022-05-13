@@ -7,9 +7,13 @@
 
 import UIKit
 import CountryPicker
+import Combine
 
 class HomeViewController: UIViewController {
-    var homeViewModel: HomeViewModel = HomeViewModel()
+    var subscriptions = Set<AnyCancellable>()
+    var viewModel: HomeViewModel = HomeViewModel()
+    var images: [String: UIImage?] = [:]
+    let countries = ["FR", "GB"]
 
     @IBOutlet var countryButton: UIButton!
 
@@ -17,9 +21,29 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         countryButton.setTitle("", for: .normal)
-        if let image = UIImage(named: "FR.png") {
-            countryButton.setImage(image, for: .normal)
+        for code in countries {
+            if let image = UIImage(named: code + ".png") {
+                images[code] = image
+            }
         }
+        updateCountry(country: viewModel.activeCountry.value)
+        
+        bindViewModel()
+    }
+    
+    func bindViewModel() {
+        viewModel.activeCountry
+            //.receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+            } receiveValue: {
+                self.updateCountry(country: $0)
+            }
+            .store(in: &subscriptions)
+    }
+
+    func updateCountry(country: String) {
+        countryButton.setImage(images[country] as? UIImage, for: .normal)
     }
 
     @IBAction func tapFlag(_ sender: Any) {
@@ -29,7 +53,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCountryPicker"{
             if let destinationVC = segue.destination as? PickerViewController {
-                destinationVC.activeCountry = homeViewModel.activeCountry
+                destinationVC.activeCountry = viewModel.activeCountry.value
             }
         }
     }
@@ -38,6 +62,6 @@ class HomeViewController: UIViewController {
     @IBAction func unwindPickerToHome(sender: UIStoryboardSegue)
     {
         let sourceVC = sender.source as! PickerViewController
-        homeViewModel.activeCountry = sourceVC.activeCountry
+        viewModel.activeCountry.value = sourceVC.activeCountry
     }
 }

@@ -26,7 +26,7 @@ class PickerViewController: UIViewController, CountryPickerDelegate {
         // https://cocoapods.org/pods/CountryPickerSwift
         countryPicker.countryPickerDelegate = self
         countryPicker.showPhoneNumbers = false
-        countryPicker.displayOnlyCountriesWithCodes = ["FR", "GB"] //display only
+        countryPicker.displayOnlyCountriesWithCodes = ["FR", "GB"]
         // let theme = CountryViewTheme(countryCodeTextColor: .white, countryNameTextColor: .white, rowBackgroundColor: .black, showFlagsBorder: true)
         // countryPicker.theme = theme //optional
         countryPicker.setCountry(activeCountry)
