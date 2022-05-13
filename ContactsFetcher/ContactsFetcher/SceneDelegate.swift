@@ -5,6 +5,7 @@
 //  Created by Thierry Vilmart on 2022-05-12.
 //
 import UIKit
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,17 +16,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let winScene = (scene as? UIWindowScene) else { return }
+        guard let _ = (scene as? UIWindowScene) else { return }
         
-        // https://stackoverflow.com/questions/57451496/why-is-manually-setup-root-view-controller-showing-black-screen
-        let vc = HomeViewController()
-        let nc = UINavigationController(rootViewController: vc)
-
-        // Create the window. Be sure to use this initializer and not the frame one.
-        let win = UIWindow(windowScene: winScene)
-        win.rootViewController = nc
-        win.makeKeyAndVisible()
-        window = win
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if error != nil || user == nil {
+              // Show the app's signed-out state.
+            } else {
+                // --> To test the login, add a return here, or uninstall the app
+                // the code below will skip the sign-in screen if the login is saved
+                // https://stackoverflow.com/questions/57451496/why-is-manually-setup-root-view-controller-showing-black-screen
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+                self.window?.rootViewController = initialViewController
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -42,16 +43,17 @@
                     <connections>
                         <outlet property="SignInButton" destination="BYy-1f-N5f" id="jRf-su-p9j"/>
                         <outlet property="signInButton" destination="BYy-1f-N5f" id="6fg-Xu-Blz"/>
+                        <segue destination="vzX-Kz-H4H" kind="showDetail" identifier="showHome" id="utA-y2-ytb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="84"/>
+            <point key="canvasLocation" x="-300" y="78"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="7KH-on-QU8">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="vzX-Kz-H4H" customClass="HomeViewController" customModule="ContactsFetcher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" modalPresentationStyle="fullScreen" id="vzX-Kz-H4H" customClass="HomeViewController" customModule="ContactsFetcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mY7-sy-N2C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="55x-PS-PmM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2cp-YV-1zC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUk-rN-7EL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
