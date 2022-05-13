@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
              A delay is added as a workaround because the sign in view controller is not totally finished with this error.
              "ContactsFetcher[9680:218229] [Presentation] Attempt to present <ContactsFetcher.HomeViewController: 0x141d1cd20> on <SFAuthenticationViewController: 0x14280fa00> (from <SFAuthenticationViewController: 0x14280fa00>) whose view is not in the window hierarchy."
             */
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
                 self.performSegue(withIdentifier: "showHome", sender: self )
             })
             

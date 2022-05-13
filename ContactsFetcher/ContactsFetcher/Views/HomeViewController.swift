@@ -6,16 +6,24 @@
 //
 
 import UIKit
-import CountryPicker
 import Combine
+import Localize_Swift
 
 class HomeViewController: UIViewController {
     var subscriptions = Set<AnyCancellable>()
     var viewModel: HomeViewModel = HomeViewModel()
-    var images: [String: UIImage?] = [:]
+
+    // all the available languages to switch from
     let countries = ["FR", "GB"]
+    // a mapping from country code to flag image
+    var images: [String: UIImage?] = [:]
+    // a mapping from country to locale
+    let mapCountryToLocale = ["FR": "fr", "GB": "en-GB"]
 
     @IBOutlet var countryButton: UIButton!
+    @IBOutlet var sortByLabel: UILabel!
+    @IBOutlet var firstnameButton: UIButton!
+    @IBOutlet var lastnameButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +34,31 @@ class HomeViewController: UIViewController {
                 images[code] = image
             }
         }
-        updateCountry(country: viewModel.activeCountry.value)
         
         bindViewModel()
     }
-    
+
     func bindViewModel() {
+        print(Localize.availableLanguages())
         viewModel.activeCountry
-            //.receive(on: RunLoop.main)
             .receive(on: DispatchQueue.main)
             .sink { _ in
-            } receiveValue: {
-                self.updateCountry(country: $0)
+            } receiveValue: { [self] in
+                updateCountryFlag(country: $0)
+                if let val = mapCountryToLocale[$0] {
+                    Localize.setCurrentLanguage(val)
+                }
+                viewModel.updateLanguageData(country: $0)
             }
+            .store(in: &subscriptions)
+
+        viewModel.sortByLabelText
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.text!, on: sortByLabel)
             .store(in: &subscriptions)
     }
 
-    func updateCountry(country: String) {
+    func updateCountryFlag(country: String) {
         countryButton.setImage(images[country] as? UIImage, for: .normal)
     }
 

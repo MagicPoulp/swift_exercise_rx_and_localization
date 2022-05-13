@@ -14,10 +14,17 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.2)
+  - Localize-Swift (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
+    - Localize-Swift/UIKit (= 3.2.0)
+  - Localize-Swift/LocalizeSwiftCore (3.2.0)
+  - Localize-Swift/UIKit (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore
 
 DEPENDENCIES:
   - CountryPickerSwift
   - GoogleSignIn
+  - Localize-Swift
 
 SPEC REPOS:
   trunk:
@@ -26,6 +33,7 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - Localize-Swift
 
 SPEC CHECKSUMS:
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
@@ -33,7 +41,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
 
-PODFILE CHECKSUM: 47053846f24260193984866c4e4ccc8a3550cba1
+PODFILE CHECKSUM: dc5a77c001c1528f13a67ce0425d6efac4ad0b5a
 
 COCOAPODS: 1.11.3

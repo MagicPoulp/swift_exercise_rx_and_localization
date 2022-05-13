@@ -58,9 +58,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="732-On-Cfu" userLabel="countryButton">
-                                <rect key="frame" x="196" y="221" width="24" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1th-B2-Oef">
+                                <rect key="frame" x="107" y="393" width="216.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYW-Ef-Z2B" userLabel="Sort by:">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpz-Ms-dNm">
+                                        <rect key="frame" x="41.5" y="0.0" width="88" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Firstname"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nql-Eh-naC">
+                                        <rect key="frame" x="129.5" y="0.0" width="87" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Lastname"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="732-On-Cfu" userLabel="countryButton">
+                                <rect key="frame" x="380" y="54" width="24" height="14"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -70,10 +90,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="55x-PS-PmM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="55x-PS-PmM" firstAttribute="trailing" secondItem="732-On-Cfu" secondAttribute="trailing" constant="10" id="944-A3-6sG"/>
+                            <constraint firstItem="732-On-Cfu" firstAttribute="top" secondItem="55x-PS-PmM" secondAttribute="top" constant="10" id="YBM-Hk-AUK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2cp-YV-1zC"/>
                     <connections>
                         <outlet property="countryButton" destination="732-On-Cfu" id="dej-0u-VBi"/>
+                        <outlet property="firstnameButton" destination="mpz-Ms-dNm" id="tEG-rL-wzp"/>
+                        <outlet property="lastnameButton" destination="nql-Eh-naC" id="xGj-BA-p37"/>
+                        <outlet property="sortByLabel" destination="yYW-Ef-Z2B" id="Cic-BO-ciB"/>
                         <segue destination="qg8-S7-WCM" kind="show" identifier="showCountryPicker" id="dp4-uD-9TP"/>
                     </connections>
                 </viewController>

@@ -7,11 +7,13 @@
 
 import UIKit
 import Combine
+import Localize_Swift
 
 // https://swiftwithmajid.com/2020/02/05/building-viewmodels-with-combine-framework/
 
 struct HomeViewModel {
     let activeCountry = CurrentValueSubject<String, Never>("")
+    let sortByLabelText = CurrentValueSubject<String, Never>("")
     
     init() {
         let locale = Locale.current
@@ -20,5 +22,9 @@ struct HomeViewModel {
             localActiveCountry = "GB"
         }
         activeCountry.value = localActiveCountry
+    }
+
+    func updateLanguageData(country: String) {
+        sortByLabelText.value = "SORT_BY".localized()
     }
 }
