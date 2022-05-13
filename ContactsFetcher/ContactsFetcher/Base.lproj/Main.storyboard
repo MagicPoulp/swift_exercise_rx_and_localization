@@ -58,22 +58,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foB-ge-wqW">
-                                <rect key="frame" x="186" y="437" width="42" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="732-On-Cfu" userLabel="countryButton">
+                                <rect key="frame" x="196" y="221" width="24" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="tapFlag:" destination="vzX-Kz-H4H" eventType="touchUpInside" id="EV9-eU-dI2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="55x-PS-PmM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2cp-YV-1zC"/>
+                    <connections>
+                        <outlet property="countryButton" destination="732-On-Cfu" id="dej-0u-VBi"/>
+                        <segue destination="qg8-S7-WCM" kind="show" identifier="showCountryPicker" id="dp4-uD-9TP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUk-rN-7EL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-300" y="-589"/>
+        </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="dvC-Vz-EcY">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="qg8-S7-WCM" customClass="PickerViewController" customModule="ContactsFetcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G24-Yh-LXK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T7d-8w-cZ5">
+                                <rect key="frame" x="47" y="333" width="320" height="230"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyE-ZO-Fpd" customClass="CountryPicker" customModule="CountryPicker">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Us-uV-IQu">
+                                        <rect key="frame" x="0.0" y="216" width="320" height="14"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="tapCloseButton:" destination="qg8-S7-WCM" eventType="touchUpInside" id="CD4-H0-uER"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SyE-ZO-Fpd" firstAttribute="centerX" secondItem="T7d-8w-cZ5" secondAttribute="centerX" id="VK9-r1-yNV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VvS-Gd-9zB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T7d-8w-cZ5" firstAttribute="centerX" secondItem="G24-Yh-LXK" secondAttribute="centerX" id="b4j-dT-PrP"/>
+                            <constraint firstItem="T7d-8w-cZ5" firstAttribute="centerY" secondItem="G24-Yh-LXK" secondAttribute="centerY" id="zdc-Cf-NYu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fUc-OK-OTo"/>
+                    <connections>
+                        <outlet property="closeButton" destination="1Us-uV-IQu" id="0gj-8Z-W91"/>
+                        <outlet property="countryPicker" destination="SyE-ZO-Fpd" id="ZQE-8j-5tu"/>
+                        <segue destination="FO2-jI-fMA" kind="unwind" identifier="unwindSeguePickerToHome" unwindAction="unwindPickerToHomeWithSender:" id="E7Z-2r-0gQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9j-4c-hOe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FO2-jI-fMA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-601" y="-1262"/>
         </scene>
     </scenes>
     <resources>

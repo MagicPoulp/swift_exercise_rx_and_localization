@@ -4,5 +4,6 @@ use_frameworks!
 
 target 'ContactsFetcher' do
     pod 'GoogleSignIn'
+    pod 'CountryPickerSwift'
 end
 

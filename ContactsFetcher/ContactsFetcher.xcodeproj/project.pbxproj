@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		224D40AC282DAAB40025E1EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D40AB282DAAB40025E1EB /* HomeViewController.swift */; };
+		224D40D0282E776E0025E1EB /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D40CF282E776E0025E1EB /* PickerViewController.swift */; };
+		224D40D4282E9ED60025E1EB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D40D3282E9ED60025E1EB /* HomeViewModel.swift */; };
 		22E6A359282D4674008A651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A358282D4674008A651E /* AppDelegate.swift */; };
 		22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35A282D4674008A651E /* SceneDelegate.swift */; };
 		22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35C282D4674008A651E /* LoginViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		224D40AB282DAAB40025E1EB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		224D40CF282E776E0025E1EB /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		224D40D3282E9ED60025E1EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		22E6A355282D4674008A651E /* ContactsFetcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsFetcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E6A358282D4674008A651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E6A35A282D4674008A651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +53,17 @@
 			children = (
 				22E6A35C282D4674008A651E /* LoginViewController.swift */,
 				224D40AB282DAAB40025E1EB /* HomeViewController.swift */,
+				224D40CF282E776E0025E1EB /* PickerViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		224D40D1282E9E9B0025E1EB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				224D40D3282E9ED60025E1EB /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		22E6A34C282D4674008A651E = {
@@ -74,6 +87,7 @@
 		22E6A357282D4674008A651E /* ContactsFetcher */ = {
 			isa = PBXGroup;
 			children = (
+				224D40D1282E9E9B0025E1EB /* ViewModels */,
 				224ADDB8282D8695009F6AB7 /* Views */,
 				22E6A358282D4674008A651E /* AppDelegate.swift */,
 				22E6A35A282D4674008A651E /* SceneDelegate.swift */,
@@ -217,6 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224D40D0282E776E0025E1EB /* PickerViewController.swift in Sources */,
+				224D40D4282E9ED60025E1EB /* HomeViewModel.swift in Sources */,
 				22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */,
 				22E6A359282D4674008A651E /* AppDelegate.swift in Sources */,
 				22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */,
