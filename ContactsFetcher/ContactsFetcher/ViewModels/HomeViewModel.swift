@@ -12,8 +12,11 @@ import Localize_Swift
 // https://swiftwithmajid.com/2020/02/05/building-viewmodels-with-combine-framework/
 
 struct HomeViewModel {
+    // a boolean just for initializing the language from the persistent storage without saving again
+    var isLanguageBeingSetFromStorage = false
+
     // publishers for the logic of the UI
-    let activeCountry = CurrentValueSubject<String, Never>("")
+    let activeLanguage = CurrentValueSubject<String, Never>("")
     let activeContactsSortingState = CurrentValueSubject<ContactsSortingState, Never>(ContactsSortingState.byFirstname)
 
     // publishers for the text data
@@ -23,14 +26,14 @@ struct HomeViewModel {
     
     init() {
         let locale = Locale.current
-        var localActiveCountry = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
-        if (localActiveCountry != "FR" && localActiveCountry != "GB") {
-            localActiveCountry = "GB"
+        var localActiveLanguage = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
+        if (localActiveLanguage != "FR" && localActiveLanguage != "GB") {
+            localActiveLanguage = "GB"
         }
-        activeCountry.value = localActiveCountry
+        activeLanguage.value = localActiveLanguage
     }
 
-    func updateLanguageData(country: String) {
+    func updateLanguageTextData(country: String) {
         sortByLabelText.value = "SORT_BY".localized()
         firstnameText.value = "FIRSTNAME".localized()
         lastnameText.value = "LASTNAME".localized()

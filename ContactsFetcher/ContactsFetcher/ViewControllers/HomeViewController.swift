@@ -7,8 +7,10 @@
 
 import UIKit
 import Combine
+import Localize_Swift
 
 class HomeViewController: UIViewController {
+    var storage: PersistenceStorageManager = PersistenceStorageManager()
     var subscriptions = Set<AnyCancellable>()
     var viewModel: HomeViewModel = HomeViewModel()
     let notificationCenter = NotificationCenter.default
@@ -41,17 +43,27 @@ class HomeViewController: UIViewController {
         }
         
         bindViewModel()
+        if let savedLanguage = storage.getSavedLanguage() {
+            viewModel.isLanguageBeingSetFromStorage = true
+            viewModel.activeLanguage.value = savedLanguage
+        }
     }
 
     func bindViewModel() {
         // binding UI logic publishers to work to be done
-        viewModel.activeCountry
+        viewModel.activeLanguage
             .receive(on: DispatchQueue.main)
             .sink { _ in
             } receiveValue: { [self] in
+                Localize.setCurrentLanguage(PickerViewController.mapCountryToLocale[$0]!)
+                if (!viewModel.isLanguageBeingSetFromStorage) {
+                    storage.save(language: $0)
+                }
+                viewModel.isLanguageBeingSetFromStorage = false
+
+                // update based on the newly selected language
                 updateCountryFlag(country: $0)
-                // Localize.setCurrentLanguage(val) is set in the Picker view controller
-                viewModel.updateLanguageData(country: $0)
+                viewModel.updateLanguageTextData(country: $0)
             }
             .store(in: &subscriptions)
         // See in the README file, why we need a notification to propagate data to the embedded table view controller
@@ -99,7 +111,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCountryPicker"{
             if let destinationVC = segue.destination as? PickerViewController {
-                destinationVC.activeCountry.value = viewModel.activeCountry.value
+                destinationVC.activeCountry.value = viewModel.activeLanguage.value
             }
         }
     }
@@ -110,6 +122,6 @@ class HomeViewController: UIViewController {
     @IBAction func unwindPickerToHome(sender: UIStoryboardSegue)
     {
         let sourceVC = sender.source as! PickerViewController
-        viewModel.activeCountry.value = sourceVC.activeCountry.value
+        viewModel.activeLanguage.value = sourceVC.activeCountry.value
     }
 }

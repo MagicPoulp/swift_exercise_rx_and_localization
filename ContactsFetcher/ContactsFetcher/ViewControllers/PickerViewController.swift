@@ -14,7 +14,7 @@ class PickerViewController: UIViewController, CountryPickerDelegate {
     let activeCountry = CurrentValueSubject<String, Never>("")
     var subscriptions = Set<AnyCancellable>()
     // a mapping from country to locale
-    let mapCountryToLocale = ["FR": "fr", "GB": "en-GB"]
+    static let mapCountryToLocale = ["FR": "fr", "GB": "en-GB"]
 
     @IBOutlet var countryPicker: CountryPicker!
     @IBOutlet var closeButton: UIButton!
@@ -40,7 +40,7 @@ class PickerViewController: UIViewController, CountryPickerDelegate {
             .receive(on: DispatchQueue.main)
             .sink { _ in
             } receiveValue: { [self] in
-                if let val = mapCountryToLocale[$0] {
+                if let val = PickerViewController.mapCountryToLocale[$0] {
                     Localize.setCurrentLanguage(val)
                 }
                 closeButton.setTitleWithOutAnimation(title: "SAVE".localized())
