@@ -43,7 +43,9 @@ class PickerViewController: UIViewController, CountryPickerDelegate {
                 if let val = mapCountryToLocale[$0] {
                     Localize.setCurrentLanguage(val)
                 }
-                closeButton.setTitle("SAVE".localized(), for: .normal)
+                closeButton.setTitleWithOutAnimation(title: "SAVE".localized())
+                // one can exchange these 2 lines to see the animation that we removed
+                //closeButton.setTitle("SAVE".localized(), for: .normal)
                 closeButton.centerTextAndImage(spacing: 10)
             }
             .store(in: &subscriptions)

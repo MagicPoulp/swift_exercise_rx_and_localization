@@ -32,4 +32,14 @@ extension UIButton {
            contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
         }
     }
+
+    // https://stackoverflow.com/questions/29630500/prevent-uibuttons-settitleforstate-animation
+    func setTitleWithOutAnimation(title: String?) {
+        UIView.setAnimationsEnabled(false)
+
+        setTitle(title, for: .normal)
+
+        layoutIfNeeded()
+        UIView.setAnimationsEnabled(true)
+    }
 }
