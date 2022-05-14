@@ -62,3 +62,7 @@ class ContactsTableViewController: UITableViewController {
         return cell
     }
 }
+
+// the recommended way to communicate between 2 view controllers repeatedly lies in
+// the NotificationCenter
+// https://stackoverflow.com/questions/32437094/pass-data-to-the-container-view-in-swift
