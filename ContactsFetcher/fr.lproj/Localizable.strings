@@ -6,3 +6,6 @@
   
 */
 "SORT_BY" = "Ordonner par :";
+"FIRSTNAME" = "Prénom";
+"LASTNAME" = "Nom";
+"SAVE" = "Enregistrer";

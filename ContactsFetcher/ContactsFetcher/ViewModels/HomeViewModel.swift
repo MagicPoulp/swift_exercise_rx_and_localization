@@ -14,6 +14,8 @@ import Localize_Swift
 struct HomeViewModel {
     let activeCountry = CurrentValueSubject<String, Never>("")
     let sortByLabelText = CurrentValueSubject<String, Never>("")
+    let firstnameText = CurrentValueSubject<String, Never>("")
+    let lastnameText = CurrentValueSubject<String, Never>("")
     
     init() {
         let locale = Locale.current
@@ -26,5 +28,7 @@ struct HomeViewModel {
 
     func updateLanguageData(country: String) {
         sortByLabelText.value = "SORT_BY".localized()
+        firstnameText.value = "FIRSTNAME".localized()
+        lastnameText.value = "LASTNAME".localized()
     }
 }

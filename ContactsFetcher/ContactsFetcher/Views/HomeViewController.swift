@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import Localize_Swift
 
 class HomeViewController: UIViewController {
     var subscriptions = Set<AnyCancellable>()
@@ -17,8 +16,6 @@ class HomeViewController: UIViewController {
     let countries = ["FR", "GB"]
     // a mapping from country code to flag image
     var images: [String: UIImage?] = [:]
-    // a mapping from country to locale
-    let mapCountryToLocale = ["FR": "fr", "GB": "en-GB"]
 
     @IBOutlet var countryButton: UIButton!
     @IBOutlet var sortByLabel: UILabel!
@@ -44,9 +41,7 @@ class HomeViewController: UIViewController {
             .sink { _ in
             } receiveValue: { [self] in
                 updateCountryFlag(country: $0)
-                if let val = mapCountryToLocale[$0] {
-                    Localize.setCurrentLanguage(val)
-                }
+                // Localize.setCurrentLanguage(val) is set in the Picker view controller
                 viewModel.updateLanguageData(country: $0)
             }
             .store(in: &subscriptions)
@@ -54,6 +49,14 @@ class HomeViewController: UIViewController {
         viewModel.sortByLabelText
             .receive(on: DispatchQueue.main)
             .assign(to: \.text!, on: sortByLabel)
+            .store(in: &subscriptions)
+        viewModel.firstnameText
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.normalTitleText!, on: firstnameButton)
+            .store(in: &subscriptions)
+        viewModel.lastnameText
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.normalTitleText!, on: lastnameButton)
             .store(in: &subscriptions)
     }
 
@@ -68,7 +71,7 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCountryPicker"{
             if let destinationVC = segue.destination as? PickerViewController {
-                destinationVC.activeCountry = viewModel.activeCountry.value
+                destinationVC.activeCountry.value = viewModel.activeCountry.value
             }
         }
     }
@@ -77,6 +80,6 @@ class HomeViewController: UIViewController {
     @IBAction func unwindPickerToHome(sender: UIStoryboardSegue)
     {
         let sourceVC = sender.source as! PickerViewController
-        viewModel.activeCountry.value = sourceVC.activeCountry
+        viewModel.activeCountry.value = sourceVC.activeCountry.value
     }
 }
