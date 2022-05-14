@@ -23,7 +23,7 @@ class ContactsTableViewController: UITableViewController {
     private func fetchContacts() {
         // 1.
         let store = CNContactStore()
-        // this is known for not blocking the UI main thread
+        // this async and not blocking the UI main thread
         store.requestAccess(for: .contacts) { (granted, error) in
             if let error = error {
                 print("failed to request access", error)
@@ -38,7 +38,6 @@ class ContactsTableViewController: UITableViewController {
                     try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
                         self.contacts.append(FetchedContact(firstName: contact.givenName, lastName: contact.familyName, email: String(contact.emailAddresses.first?.value ?? "")))
                     })
-                    print(self.contacts)
                 } catch let error {
                     print("Failed to enumerate contact", error)
                 }
@@ -48,26 +47,20 @@ class ContactsTableViewController: UITableViewController {
         }
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // 1.
-        // return the number of sections
-        return 1
-    }
-
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 2.
         // return the number of rows
         return contacts.count
     }
 
-  /*
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell", for: indexPath) as! ContactsCell
+        cell.backgroundColor = .gray
         // 3.
         // Configure the cell...
-        cell.textLabel?.text = contacts[indexPath.row].firstName + " " + contacts[indexPath.row].lastName
-        cell.detailTextLabel?.text = contacts[indexPath.row].telephone
+        cell.fullnameLabel?.text = contacts[indexPath.row].firstName + " " + contacts[indexPath.row].lastName
+        //cell.detailTextLabel?.text = contacts[indexPath.row].email
+            cell.fullnameLabel?.textAlignment = .center;
         return cell
     }
-   */
 }

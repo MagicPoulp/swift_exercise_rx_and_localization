@@ -15,6 +15,7 @@
 		2272CE2C282FC4FE00DAE2A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2272CE2E282FC4FE00DAE2A4 /* InfoPlist.strings */; };
 		2272CE31282FC76B00DAE2A4 /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE30282FC76B00DAE2A4 /* FetchedContact.swift */; };
 		2272CE34282FC7C700DAE2A4 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */; };
+		2272CE36282FDFCE00DAE2A4 /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE35282FDFCE00DAE2A4 /* ContactsCell.swift */; };
 		22E6A359282D4674008A651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A358282D4674008A651E /* AppDelegate.swift */; };
 		22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35A282D4674008A651E /* SceneDelegate.swift */; };
 		22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35C282D4674008A651E /* LoginViewController.swift */; };
@@ -35,6 +36,7 @@
 		2272CE2F282FC50800DAE2A4 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2272CE30282FC76B00DAE2A4 /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
 		2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		2272CE35282FDFCE00DAE2A4 /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		22E6A355282D4674008A651E /* ContactsFetcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsFetcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E6A358282D4674008A651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E6A35A282D4674008A651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				224D40AB282DAAB40025E1EB /* HomeViewController.swift */,
 				224D40CF282E776E0025E1EB /* PickerViewController.swift */,
 				2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */,
+				2272CE35282FDFCE00DAE2A4 /* ContactsCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				224D40D0282E776E0025E1EB /* PickerViewController.swift in Sources */,
 				224D40D4282E9ED60025E1EB /* HomeViewModel.swift in Sources */,
+				2272CE36282FDFCE00DAE2A4 /* ContactsCell.swift in Sources */,
 				22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */,
 				22E6A359282D4674008A651E /* AppDelegate.swift in Sources */,
 				22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */,
