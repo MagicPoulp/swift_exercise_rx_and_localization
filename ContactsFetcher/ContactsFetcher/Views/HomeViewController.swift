@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
     }
 
     func bindViewModel() {
-        print(Localize.availableLanguages())
         viewModel.activeCountry
             .receive(on: DispatchQueue.main)
             .sink { _ in
