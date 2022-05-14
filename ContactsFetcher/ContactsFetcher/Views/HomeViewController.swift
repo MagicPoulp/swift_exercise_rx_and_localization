@@ -24,6 +24,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstnameButton.layer.cornerRadius = 12
+        firstnameButton.layer.borderWidth = 0.6
+        firstnameButton.layer.borderColor = firstnameButton.tintColor.cgColor
+        lastnameButton.layer.cornerRadius = 12
+        lastnameButton.layer.borderWidth = 0.6
+        lastnameButton.layer.borderColor = firstnameButton.tintColor.cgColor
 
         countryButton.setTitle("", for: .normal)
         for code in countries {
