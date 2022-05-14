@@ -5,6 +5,7 @@
   Created by Thierry Vilmart on 2022-05-13.
   
 */
+
 "SORT_BY" = "Ordonner par :";
 "FIRSTNAME" = "Prénom";
 "LASTNAME" = "Nom";

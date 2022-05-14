@@ -12,6 +12,9 @@
 		224D40D4282E9ED60025E1EB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D40D3282E9ED60025E1EB /* HomeViewModel.swift */; };
 		224D40E1282EF59D0025E1EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 224D40E3282EF59D0025E1EB /* Localizable.strings */; };
 		224D40E9282F85E40025E1EB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D40E8282F85E40025E1EB /* Extensions.swift */; };
+		2272CE2C282FC4FE00DAE2A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2272CE2E282FC4FE00DAE2A4 /* InfoPlist.strings */; };
+		2272CE31282FC76B00DAE2A4 /* FetchedContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE30282FC76B00DAE2A4 /* FetchedContact.swift */; };
+		2272CE34282FC7C700DAE2A4 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */; };
 		22E6A359282D4674008A651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A358282D4674008A651E /* AppDelegate.swift */; };
 		22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35A282D4674008A651E /* SceneDelegate.swift */; };
 		22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35C282D4674008A651E /* LoginViewController.swift */; };
@@ -28,6 +31,10 @@
 		224D40E4282EF5B90025E1EB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		224D40E5282EF5C10025E1EB /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		224D40E8282F85E40025E1EB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2272CE2D282FC4FE00DAE2A4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2272CE2F282FC50800DAE2A4 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2272CE30282FC76B00DAE2A4 /* FetchedContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedContact.swift; sourceTree = "<group>"; };
+		2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		22E6A355282D4674008A651E /* ContactsFetcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsFetcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E6A358282D4674008A651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E6A35A282D4674008A651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,14 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		224ADDB8282D8695009F6AB7 /* Views */ = {
+		224ADDB8282D8695009F6AB7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				22E6A35C282D4674008A651E /* LoginViewController.swift */,
 				224D40AB282DAAB40025E1EB /* HomeViewController.swift */,
 				224D40CF282E776E0025E1EB /* PickerViewController.swift */,
+				2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */,
 			);
-			path = Views;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		224D40D1282E9E9B0025E1EB /* ViewModels */ = {
@@ -79,9 +87,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2272CE32282FC78300DAE2A4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2272CE30282FC76B00DAE2A4 /* FetchedContact.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		22E6A34C282D4674008A651E = {
 			isa = PBXGroup;
 			children = (
+				2272CE2E282FC4FE00DAE2A4 /* InfoPlist.strings */,
 				224D40E3282EF59D0025E1EB /* Localizable.strings */,
 				22E6A357282D4674008A651E /* ContactsFetcher */,
 				22E6A356282D4674008A651E /* Products */,
@@ -101,9 +118,10 @@
 		22E6A357282D4674008A651E /* ContactsFetcher */ = {
 			isa = PBXGroup;
 			children = (
+				2272CE32282FC78300DAE2A4 /* Data */,
 				224D40E7282F85D50025E1EB /* Extensions */,
 				224D40D1282E9E9B0025E1EB /* ViewModels */,
-				224ADDB8282D8695009F6AB7 /* Views */,
+				224ADDB8282D8695009F6AB7 /* ViewControllers */,
 				22E6A358282D4674008A651E /* AppDelegate.swift */,
 				22E6A35A282D4674008A651E /* SceneDelegate.swift */,
 				22E6A35E282D4674008A651E /* Main.storyboard */,
@@ -197,6 +215,7 @@
 				224D40E1282EF59D0025E1EB /* Localizable.strings in Resources */,
 				22E6A362282D4675008A651E /* Assets.xcassets in Resources */,
 				22E6A360282D4674008A651E /* Main.storyboard in Resources */,
+				2272CE2C282FC4FE00DAE2A4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +274,9 @@
 				22E6A359282D4674008A651E /* AppDelegate.swift in Sources */,
 				22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */,
 				224D40AC282DAAB40025E1EB /* HomeViewController.swift in Sources */,
+				2272CE31282FC76B00DAE2A4 /* FetchedContact.swift in Sources */,
 				224D40E9282F85E40025E1EB /* Extensions.swift in Sources */,
+				2272CE34282FC7C700DAE2A4 /* ContactsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +290,15 @@
 				224D40E5282EF5C10025E1EB /* en-GB */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		2272CE2E282FC4FE00DAE2A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2272CE2D282FC4FE00DAE2A4 /* fr */,
+				2272CE2F282FC50800DAE2A4 /* en-GB */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		22E6A35E282D4674008A651E /* Main.storyboard */ = {
