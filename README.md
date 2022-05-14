@@ -2,6 +2,10 @@ Author:
 Thierry Vilmart
 May 2022
 
+# Additional functionality
+
+A persitent storage is used, with CoreData, to save the state of the language button
+
 # Design choices
 
 Authentication with google SignIn
