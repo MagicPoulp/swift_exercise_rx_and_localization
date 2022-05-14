@@ -11,6 +11,7 @@ import Combine
 class HomeViewController: UIViewController {
     var subscriptions = Set<AnyCancellable>()
     var viewModel: HomeViewModel = HomeViewModel()
+    let notificationCenter = NotificationCenter.default
 
     // all the available languages to switch from
     let countries = ["FR", "GB"]
@@ -43,6 +44,7 @@ class HomeViewController: UIViewController {
     }
 
     func bindViewModel() {
+        // binding UI logic publishers to work to be done
         viewModel.activeCountry
             .receive(on: DispatchQueue.main)
             .sink { _ in
@@ -52,7 +54,17 @@ class HomeViewController: UIViewController {
                 viewModel.updateLanguageData(country: $0)
             }
             .store(in: &subscriptions)
+        // See in the README file, why we need a notification to propagate data to the embedded table view controller
+        viewModel.activeContactsSortingState
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+            } receiveValue: { [self] in
+                notificationCenter.post(name: Notification.Name("sortContacts"), object: nil,
+                                        userInfo: ["activeContactsSortingState": $0])
+            }
+            .store(in: &subscriptions)
 
+        // binding text publishers to UI elements
         viewModel.sortByLabelText
             .receive(on: DispatchQueue.main)
             .assign(to: \.text!, on: sortByLabel)
@@ -75,6 +87,15 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: "showCountryPicker", sender: self )
     }
 
+    @IBAction func firstnameButtonTap(_ sender: Any) {
+        viewModel.activeContactsSortingState.value = ContactsSortingState.byFirstname
+    }
+
+    @IBAction func lastnameButtonTap(_ sender: Any) {
+        viewModel.activeContactsSortingState.value = ContactsSortingState.byLastname
+    }
+
+    // transition when clicking the flag button
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCountryPicker"{
             if let destinationVC = segue.destination as? PickerViewController {
@@ -83,6 +104,8 @@ class HomeViewController: UIViewController {
         }
     }
 
+    // transition when comming back from the flag button with
+    // the country picker
     // https://medium.com/@ldeme/unwind-segues-in-swift-5-e392134c65fd
     @IBAction func unwindPickerToHome(sender: UIStoryboardSegue)
     {

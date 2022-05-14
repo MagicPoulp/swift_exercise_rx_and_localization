@@ -7,15 +7,61 @@
 
 import UIKit
 import Contacts
+import Combine
 
 class ContactsTableViewController: UITableViewController {
-    
+    var subscriptions = Set<AnyCancellable>()
     var contacts = [FetchedContact]()
+    var viewModel = ContactsTableViewModel()
+    let mapSortingStateToKey = [ContactsSortingState.byFirstname: "firstname", ContactsSortingState.byLastname: "lastname"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindViewModel()
+
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(onSortContacts),
+                         name: NSNotification.Name("sortContacts"),
+                         object: nil)
+
         fetchContacts()
+    }
+    
+    func bindViewModel() {
+        // binding UI logic publishers to work to be done
+        viewModel.activeContactsSortingState
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+            } receiveValue: { val in
+                let sortingKey = self.mapSortingStateToKey[val]
+                // the revert sort allows additional tapping to sort in reverse order
+                if (self.viewModel.previousContactsSortingState == val) {
+                    self.viewModel.sortingMultiplier *= -1
+                } else {
+                    self.viewModel.sortingMultiplier = 1
+                }
+                let reverserSort = self.viewModel.sortingMultiplier == -1
+                self.contacts.sort(by: { contactStruct1, contactStruct2 in
+                    let contact1 = contactStruct1.asDictionary
+                    let contact2 = contactStruct2.asDictionary
+                    if (reverserSort) {
+                        return (contact1[sortingKey ?? "firstname"] as! String) > (contact2[sortingKey ?? "firstname"] as! String)
+                    }
+                    return (contact1[sortingKey ?? "firstname"] as! String) < (contact2[sortingKey ?? "firstname"] as! String)
+                })
+                self.tableView.reloadData()
+                self.viewModel.previousContactsSortingState = val
+            }
+            .store(in: &subscriptions)
+    }
+
+    @objc func onSortContacts(notif: NSNotification) {
+        guard let userInfo = notif.userInfo else {
+            return
+        }
+        viewModel.activeContactsSortingState.value = userInfo["activeContactsSortingState"] as! ContactsSortingState
     }
 
     // https://developer.apple.com/documentation/contacts/cncontactstore/1402873-requestaccess
@@ -62,7 +108,3 @@ class ContactsTableViewController: UITableViewController {
         return cell
     }
 }
-
-// the recommended way to communicate between 2 view controllers repeatedly lies in
-// the NotificationCenter
-// https://stackoverflow.com/questions/32437094/pass-data-to-the-container-view-in-swift

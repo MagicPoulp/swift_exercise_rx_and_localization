@@ -12,7 +12,11 @@ import Localize_Swift
 // https://swiftwithmajid.com/2020/02/05/building-viewmodels-with-combine-framework/
 
 struct HomeViewModel {
+    // publishers for the logic of the UI
     let activeCountry = CurrentValueSubject<String, Never>("")
+    let activeContactsSortingState = CurrentValueSubject<ContactsSortingState, Never>(ContactsSortingState.byFirstname)
+
+    // publishers for the text data
     let sortByLabelText = CurrentValueSubject<String, Never>("")
     let firstnameText = CurrentValueSubject<String, Never>("")
     let lastnameText = CurrentValueSubject<String, Never>("")

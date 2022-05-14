@@ -82,11 +82,17 @@
                                                 <rect key="frame" x="0.0" y="8" width="157" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Firstname"/>
+                                                <connections>
+                                                    <action selector="firstnameButtonTap:" destination="vzX-Kz-H4H" eventType="touchUpInside" id="k5S-CP-GaL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nql-Eh-naC">
                                                 <rect key="frame" x="197" y="8" width="157" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Lastname"/>
+                                                <connections>
+                                                    <action selector="lastnameButtonTap:" destination="vzX-Kz-H4H" eventType="touchUpInside" id="ecm-2c-cj5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
@@ -171,15 +177,15 @@
             <objects>
                 <tableViewController id="PG5-2b-YHk" customClass="ContactsTableViewController" customModule="ContactsFetcher" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Vei-eN-tWu">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="676"/>
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="676"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" id="K4t-RL-awm" customClass="ContactsCell" customModule="ContactsFetcher" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="374" height="42.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="354" height="42.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4t-RL-awm" id="yvn-rL-d4H">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="42.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="354" height="42.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THF-RL-cdg" userLabel="firstnameLabel">
@@ -189,7 +195,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wR-IJ-QRr" userLabel="lastnameLabel">
-                                            <rect key="frame" x="187" y="10.5" width="42" height="21.5"/>
+                                            <rect key="frame" x="177" y="10.5" width="42" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

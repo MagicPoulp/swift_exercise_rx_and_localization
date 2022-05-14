@@ -16,10 +16,14 @@ However, our choice has better structure by splitting in several View Controller
 Moreover, the Table View Controller simplifies the code and supervises
 the table automatically.
 
+As a consequence, it became obvious that a NotificationCenter would be suited to pass
+data between the view controllers.
+The recommended way to communicate between 2 view controllers repeatedly lies in
+the NotificationCenter.
+
 # Documentation
 
 Bluetooth:
 https://medium.com/macoclock/core-bluetooth-ble-swift-d2e7b84ea98e
 https://developer.apple.com/documentation/corebluetooth
-
 
