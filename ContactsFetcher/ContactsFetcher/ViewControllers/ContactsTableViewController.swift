@@ -84,6 +84,9 @@ class ContactsTableViewController: UITableViewController {
                     try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
                         self.contacts.append(FetchedContact(firstname: contact.givenName, lastname: contact.familyName, email: String(contact.emailAddresses.first?.value ?? "")))
                     })
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 } catch let error {
                     print("Failed to enumerate contact", error)
                 }
