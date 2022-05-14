@@ -36,7 +36,7 @@ class ContactsTableViewController: UITableViewController {
                 do {
                     // 3.
                     try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
-                        self.contacts.append(FetchedContact(firstName: contact.givenName, lastName: contact.familyName, email: String(contact.emailAddresses.first?.value ?? "")))
+                        self.contacts.append(FetchedContact(firstname: contact.givenName, lastname: contact.familyName, email: String(contact.emailAddresses.first?.value ?? "")))
                     })
                 } catch let error {
                     print("Failed to enumerate contact", error)
@@ -55,12 +55,10 @@ class ContactsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell", for: indexPath) as! ContactsCell
-        cell.backgroundColor = .gray
         // 3.
         // Configure the cell...
-        cell.fullnameLabel?.text = contacts[indexPath.row].firstName + " " + contacts[indexPath.row].lastName
-        //cell.detailTextLabel?.text = contacts[indexPath.row].email
-            cell.fullnameLabel?.textAlignment = .center;
+        cell.firstnameLabel?.text = contacts[indexPath.row].firstname
+        cell.lastnameLabel?.text = contacts[indexPath.row].lastname
         return cell
     }
 }

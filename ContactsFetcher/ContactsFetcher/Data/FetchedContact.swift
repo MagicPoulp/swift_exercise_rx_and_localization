@@ -6,7 +6,7 @@
 //
 
 struct FetchedContact {
-    var firstName: String
-    var lastName: String
+    var firstname: String
+    var lastname: String
     var email: String
 }

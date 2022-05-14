@@ -9,7 +9,8 @@ import UIKit
 
 class ContactsCell: UITableViewCell {
     //MARK: Properties
-    @IBOutlet var fullnameLabel: UILabel!
+    @IBOutlet var firstnameLabel: UILabel!
+    @IBOutlet var lastnameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
