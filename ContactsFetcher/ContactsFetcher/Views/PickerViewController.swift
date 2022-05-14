@@ -23,7 +23,9 @@ class PickerViewController: UIViewController, CountryPickerDelegate {
         super.viewDidLoad()
 
         if let image = UIImage(named: "check.png") {
-            closeButton.setImage(image, for: .normal)
+            // this doc gives more info for why we need withRenderingMode()
+            // https://stackoverflow.com/questions/18133465/setting-uibutton-image-results-in-blue-button-in-ios-7
+            closeButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
         }
 
         // https://cocoapods.org/pods/CountryPickerSwift
@@ -42,10 +44,11 @@ class PickerViewController: UIViewController, CountryPickerDelegate {
                     Localize.setCurrentLanguage(val)
                 }
                 closeButton.setTitle("SAVE".localized(), for: .normal)
+                closeButton.centerTextAndImage(spacing: 10)
             }
             .store(in: &subscriptions)
     }
-    
+
     // MARK: - CountryPhoneCodePicker Delegate
     public func countryPhoneCodePicker(_ picker: CountryPicker, didSelectCountryWithName name: String, countryCode: String, phoneCode: String, flag: UIImage) {
         activeCountry.value = countryCode
