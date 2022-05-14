@@ -35,6 +35,10 @@
 		</dict>
 	</dict>
 	<key>NSContactsUsageDescription</key>
-	<string>contacts</string>
+	<string>Please give us access to contacts.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Please let us detect Bluetooth devices.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Please let us detect Bluetooth devices.</string>
 </dict>
 </plist>

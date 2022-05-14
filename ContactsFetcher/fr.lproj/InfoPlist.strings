@@ -7,3 +7,5 @@
 */
 
 "NSContactsUsageDescription" = "Merci de nous donner accès aux contacts.";
+"NSBluetoothAlwaysUsageDescription" = "Merci de nous donner accès au Bluetooth.";
+"NSBluetoothPeripheralUsageDescription" = "Merci de nous donner accès au Bluetooth.";"
