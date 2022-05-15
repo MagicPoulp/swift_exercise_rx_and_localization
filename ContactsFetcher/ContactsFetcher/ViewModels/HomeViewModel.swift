@@ -23,7 +23,8 @@ struct HomeViewModel {
     let sortByLabelText = CurrentValueSubject<String, Never>("")
     let firstnameText = CurrentValueSubject<String, Never>("")
     let lastnameText = CurrentValueSubject<String, Never>("")
-    
+    let titleLabelText = CurrentValueSubject<String, Never>("")
+
     init() {
         let locale = Locale.current
         var localActiveLanguage = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
@@ -37,5 +38,6 @@ struct HomeViewModel {
         sortByLabelText.value = "SORT_BY".localized()
         firstnameText.value = "FIRSTNAME".localized()
         lastnameText.value = "LASTNAME".localized()
+        titleLabelText.value = "CONTACTS".localized()
     }
 }

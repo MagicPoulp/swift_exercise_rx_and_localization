@@ -24,16 +24,21 @@ class HomeViewController: UIViewController {
     @IBOutlet var sortByLabel: UILabel!
     @IBOutlet var firstnameButton: UIButton!
     @IBOutlet var lastnameButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var stackView1: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         firstnameButton.layer.cornerRadius = 12
         firstnameButton.layer.borderWidth = 0.6
         firstnameButton.layer.borderColor = firstnameButton.tintColor.cgColor
         lastnameButton.layer.cornerRadius = 12
         lastnameButton.layer.borderWidth = 0.6
         lastnameButton.layer.borderColor = firstnameButton.tintColor.cgColor
+        
+        stackView1.setCustomSpacing(0, after: titleLabel)
+        stackView1.setCustomSpacing(0, after: countryButton)
 
         countryButton.setTitle("", for: .normal)
         for code in countries {
@@ -88,6 +93,10 @@ class HomeViewController: UIViewController {
         viewModel.lastnameText
             .receive(on: DispatchQueue.main)
             .assign(to: \.normalTitleText!, on: lastnameButton)
+            .store(in: &subscriptions)
+        viewModel.titleLabelText
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.text!, on: titleLabel)
             .store(in: &subscriptions)
     }
 

@@ -61,22 +61,28 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1KB-ZM-YGg">
                                 <rect key="frame" x="30" y="74" width="354" height="788"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfo-Re-xiO" userLabel="title">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="732-On-Cfu" userLabel="countryButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="354" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
                                             <action selector="tapFlag:" destination="vzX-Kz-H4H" eventType="touchUpInside" id="EV9-eU-dI2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYW-Ef-Z2B" userLabel="Sort by:">
-                                        <rect key="frame" x="0.0" y="24.5" width="354" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYW-Ef-Z2B" userLabel="Sort by:">
+                                        <rect key="frame" x="0.0" y="54.5" width="354" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="1th-B2-Oef">
-                                        <rect key="frame" x="0.0" y="55" width="354" height="47"/>
+                                        <rect key="frame" x="0.0" y="85" width="354" height="47"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpz-Ms-dNm">
                                                 <rect key="frame" x="0.0" y="8" width="157" height="31"/>
@@ -98,7 +104,7 @@
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                                     </stackView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMT-i2-wvA">
-                                        <rect key="frame" x="0.0" y="112" width="354" height="676"/>
+                                        <rect key="frame" x="0.0" y="142" width="354" height="646"/>
                                         <connections>
                                             <segue destination="PG5-2b-YHk" kind="embed" id="b2Q-6u-0L7"/>
                                         </connections>
@@ -121,6 +127,8 @@
                         <outlet property="firstnameButton" destination="mpz-Ms-dNm" id="tEG-rL-wzp"/>
                         <outlet property="lastnameButton" destination="nql-Eh-naC" id="xGj-BA-p37"/>
                         <outlet property="sortByLabel" destination="yYW-Ef-Z2B" id="Cic-BO-ciB"/>
+                        <outlet property="stackView1" destination="1KB-ZM-YGg" id="NZs-wR-zdV"/>
+                        <outlet property="titleLabel" destination="Xfo-Re-xiO" id="dJL-Su-ybz"/>
                         <segue destination="qg8-S7-WCM" kind="show" identifier="showCountryPicker" id="dp4-uD-9TP"/>
                     </connections>
                 </viewController>
@@ -177,25 +185,25 @@
             <objects>
                 <tableViewController id="PG5-2b-YHk" customClass="ContactsTableViewController" customModule="ContactsFetcher" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Vei-eN-tWu">
-                        <rect key="frame" x="0.0" y="0.0" width="354" height="676"/>
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="646"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" id="K4t-RL-awm" customClass="ContactsCell" customModule="ContactsFetcher" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="354" height="42"/>
+                                <rect key="frame" x="0.0" y="44.5" width="354" height="42.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K4t-RL-awm" id="yvn-rL-d4H">
-                                    <rect key="frame" x="0.0" y="0.0" width="354" height="42"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="354" height="42.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THF-RL-cdg" userLabel="firstnameLabel">
-                                            <rect key="frame" x="20" y="10.5" width="42" height="21"/>
+                                            <rect key="frame" x="20" y="10.5" width="42" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wR-IJ-QRr" userLabel="lastnameLabel">
-                                            <rect key="frame" x="177" y="10.5" width="42" height="21"/>
+                                            <rect key="frame" x="177" y="10.5" width="42" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -233,11 +241,11 @@
             <objects>
                 <viewController id="2JB-2J-vaU" customClass="ContactDetailsViewController" customModule="ContactsFetcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UdE-qt-msB">
-                        <rect key="frame" x="0.0" y="0.0" width="354" height="622"/>
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="592"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-9G-3Tp">
-                                <rect key="frame" x="144.5" y="270" width="65.5" height="82"/>
+                                <rect key="frame" x="144.5" y="255" width="65.5" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hP-OK-XSk" userLabel="fullnameTitle">
                                         <rect key="frame" x="0.0" y="0.0" width="65.5" height="20.5"/>
