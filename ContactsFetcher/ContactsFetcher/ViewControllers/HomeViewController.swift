@@ -107,8 +107,9 @@ class HomeViewController: UIViewController {
         viewModel.activeContactsSortingState.value = ContactsSortingState.byLastname
     }
 
-    // transition when clicking the flag button
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // transition when clicking the flag button
         if segue.identifier == "showCountryPicker"{
             if let destinationVC = segue.destination as? PickerViewController {
                 destinationVC.activeCountry.value = viewModel.activeLanguage.value

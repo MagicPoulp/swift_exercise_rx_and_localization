@@ -10,6 +10,18 @@ struct FetchedContact {
     var lastname: String
     var email: String
     
+    init() {
+        firstname = ""
+        lastname = ""
+        email = ""
+    }
+    
+    init(firstname: String, lastname: String, email: String) {
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
+    }
+    
     // the dictionary allows us to us a dynamic variable name to access
     // https://stackoverflow.com/questions/46597624/can-swift-convert-a-class-struct-data-into-dictionary
     var asDictionary : [String: Any] {

@@ -108,6 +108,19 @@ class ContactsTableViewController: UITableViewController {
         // Configure the cell...
         cell.firstnameLabel?.text = contacts[indexPath.row].firstname
         cell.lastnameLabel?.text = contacts[indexPath.row].lastname
+        cell.index = indexPath.row
         return cell
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // transition when tapping on a contact
+        if segue.destination is ContactDetailsViewController
+        {
+            let vc = segue.destination as? ContactDetailsViewController
+            let cell = sender as! ContactsCell
+            let index = cell.index
+            vc?.contact = self.contacts[index]
+        }
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class ContactsCell: UITableViewCell {
     //MARK: Properties
+    var index: Int = 0
     @IBOutlet var firstnameLabel: UILabel!
     @IBOutlet var lastnameLabel: UILabel!
 

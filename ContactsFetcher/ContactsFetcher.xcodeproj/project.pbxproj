@@ -20,6 +20,7 @@
 		2272CE3A283025B100DAE2A4 /* ContactsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE39283025B100DAE2A4 /* ContactsTableViewModel.swift */; };
 		2272CE3D2830316F00DAE2A4 /* PersistentStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE3C2830316F00DAE2A4 /* PersistentStorageManager.swift */; };
 		2272CE402830332C00DAE2A4 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE3E2830332C00DAE2A4 /* CoreDataModel.xcdatamodeld */; };
+		2272CE652830DA2500DAE2A4 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2272CE642830DA2500DAE2A4 /* ContactDetailsViewController.swift */; };
 		22E6A359282D4674008A651E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A358282D4674008A651E /* AppDelegate.swift */; };
 		22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35A282D4674008A651E /* SceneDelegate.swift */; };
 		22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6A35C282D4674008A651E /* LoginViewController.swift */; };
@@ -45,6 +46,7 @@
 		2272CE39283025B100DAE2A4 /* ContactsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewModel.swift; sourceTree = "<group>"; };
 		2272CE3C2830316F00DAE2A4 /* PersistentStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorageManager.swift; sourceTree = "<group>"; };
 		2272CE3F2830332C00DAE2A4 /* CordeDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CordeDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2272CE642830DA2500DAE2A4 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		22E6A355282D4674008A651E /* ContactsFetcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsFetcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E6A358282D4674008A651E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E6A35A282D4674008A651E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				224D40CF282E776E0025E1EB /* PickerViewController.swift */,
 				2272CE33282FC7C700DAE2A4 /* ContactsTableViewController.swift */,
 				2272CE35282FDFCE00DAE2A4 /* ContactsCell.swift */,
+				2272CE642830DA2500DAE2A4 /* ContactDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				224D40D4282E9ED60025E1EB /* HomeViewModel.swift in Sources */,
 				2272CE36282FDFCE00DAE2A4 /* ContactsCell.swift in Sources */,
 				2272CE3D2830316F00DAE2A4 /* PersistentStorageManager.swift in Sources */,
+				2272CE652830DA2500DAE2A4 /* ContactDetailsViewController.swift in Sources */,
 				22E6A35D282D4674008A651E /* LoginViewController.swift in Sources */,
 				22E6A359282D4674008A651E /* AppDelegate.swift in Sources */,
 				22E6A35B282D4674008A651E /* SceneDelegate.swift in Sources */,

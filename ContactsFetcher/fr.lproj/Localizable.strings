@@ -10,3 +10,5 @@
 "FIRSTNAME" = "Prénom";
 "LASTNAME" = "Nom";
 "SAVE" = "Enregistrer";
+"NAME" = "Nom";
+"EMAIL" = "Email";
