@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
     }
 
     func bindViewModel() {
-        // binding UI logic publishers to work to be done
+        // binding UI logic publishers to some work to be done
         viewModel.activeLanguage
             .receive(on: DispatchQueue.main)
             .sink { _ in

@@ -30,7 +30,7 @@ class ContactsTableViewController: UITableViewController {
     }
     
     func bindViewModel() {
-        // binding UI logic publishers to work to be done
+        // binding UI logic publishers to some work to be done
         viewModel.activeContactsSortingState
             .receive(on: DispatchQueue.main)
             .sink { _ in
@@ -69,7 +69,7 @@ class ContactsTableViewController: UITableViewController {
     private func fetchContacts() {
         // 1.
         let store = CNContactStore()
-        // this async and not blocking the UI main thread
+        // this is async and not blocking the UI main thread
         store.requestAccess(for: .contacts) { (granted, error) in
             if let error = error {
                 print("failed to request access", error)
